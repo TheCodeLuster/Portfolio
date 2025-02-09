@@ -1,12 +1,12 @@
 html {
-    font-family: monospace;
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
     -ms-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%;
 }
 
 body {
     margin: 0;
-    font: 18px/1.5 Inconsolata, monospace;
+    font: 18px/1.5 -apple-system, BlinkMacSystemFont, sans-serif;
     color: #333;
     display: flex;
     flex-direction: column;
