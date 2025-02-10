@@ -180,7 +180,7 @@ blockquote {
 
 /* Chess icon: Green */
 .chess-icon:hover img {
-    filter: brightness(0) saturate(100%) invert(52%) sepia(94%) saturate(2068%) hue-rotate(87deg) brightness(92%) contrast(90%);
+    filter: brightness(0) saturate(100%) invert(52%) sepia(94%) saturate(2068%) hue-rotate(87deg) brightness(82%) contrast(110%);
 }
 
 /* Waterpolo icon: Blue */
