@@ -1,12 +1,17 @@
+@font-face {
+    font-family: Aes;
+    src: url(./fonts/Aesthetic_Beauty\ CF.otf);
+}
+
 html {
-    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    font-family: Aes, sans-serif;
     -ms-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%;
 }
 
 body {
     margin: 0;
-    font: 18px/1.5 -apple-system, BlinkMacSystemFont, sans-serif;
+    font: 18px/1.5 Aes, sans-serif;
     color: #333;
     display: flex;
     flex-direction: column;
@@ -18,14 +23,19 @@ h1 {
     font-size: 4rem; /* Increased size for a bigger "Martin Fesenko" */
     margin: 0.67em 0;
     color: #111;
-    font-family: monospace;
+    font-family: Aes;
     display: block;
-    letter-spacing: 4px; /* Increased letter-spacing for more stretched text */
+    letter-spacing: 5px; /* Increased letter-spacing for more stretched text */
     text-align: left;
     max-width: 100%;
     line-height: 1.2;
     font-weight: bold;
-    margin-bottom: 2rem; /* Increased margin-bottom for more space below the header */
+    margin-bottom: 0rem; /* Increased margin-bottom for more space below the header */
+}
+
+h2 {
+    font-family: Aes;
+    font-weight: bold;
 }
 
 h1 a {
@@ -101,13 +111,7 @@ blockquote {
 @media (min-width: 30rem) {
     h1 {
         font-size: 5rem; /* Increased size for larger screens */
-        margin-bottom: 3rem;
-    }
-
-    h2 {
-        margin-top: 2rem;
-        font-size: 1.75rem;
-        margin-bottom: 1rem;
+        margin-bottom: 2rem;
     }
 }
 
@@ -124,3 +128,91 @@ blockquote {
     margin-left: 5px; /* Add a small margin to move the text to the right */
 }
 
+.hobbies-container {
+    display: flex;
+    align-items: center;
+    /* Removed justify-content: space-between */
+}
+
+.hobbies-container a {
+    margin-left: 30px;
+    margin-top: -3px;
+    transition: transform 0.2s, filter 0.2s;
+}
+
+.hobbies-container h2 {
+    margin: 0px;
+}
+
+/* Modal styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.8);
+}
+
+.modal-content {
+    margin: auto;
+    display: block;
+    max-width: 80%;
+    max-height: 80%;
+}
+
+.close {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.hobbies-container a:hover {
+    transform: translateY(-5px);
+}
+
+/* Chess icon: Green */
+.chess-icon:hover img {
+    filter: brightness(0) saturate(100%) invert(52%) sepia(94%) saturate(2068%) hue-rotate(87deg) brightness(92%) contrast(90%);
+}
+
+/* Waterpolo icon: Blue */
+.waterpolo-icon:hover img {
+    filter: brightness(0) saturate(100%) invert(48%) sepia(93%) saturate(3750%) hue-rotate(196deg) brightness(90%) contrast(101%);
+}
+
+/* Keyboard icon: Yellow */
+.keyboard-icon:hover img {
+    filter: brightness(0) saturate(100%) invert(92%) sepia(81%) saturate(3300%) hue-rotate(5deg) brightness(105%) contrast(98%);
+}
+
+.linkedin-link {
+    background: linear-gradient(to right, #155259, #3d9ea9); /* Ocean-blue gradient */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.leetcode-link {
+    background: linear-gradient(to right, #525915, #f5c650); /* Black to yellow gradient */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.github-link {
+    background: linear-gradient(to right, #5f3e90, #9355ee); /* Purple to black gradient */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.telegram-link {
+    background: linear-gradient(to right, #3db3dc, #1288b1); /* White to blue gradient */
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
