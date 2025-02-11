@@ -9,33 +9,57 @@ html {
     -webkit-text-size-adjust: 100%;
 }
 
+/* Set all body text to pure black */
 body {
     margin: 0;
     font: 18px/1.5 Aes, sans-serif;
-    color: #333;
+    color: #000;  /* Changed from #222 to pure black */
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
 }
 
+.background-image {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('img/clouds.jpg') center center / cover no-repeat;
+    z-index: -1;
+}
+
+/* Overlay for darkening and slight blur */
+.background-image::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3); /* Adjust opacity if needed */
+    filter: blur(2px);
+}
+
 h1 {
-    font-size: 4rem; /* Increased size for a bigger "Martin Fesenko" */
+    font-size: 4rem;
     margin: 0.67em 0;
-    color: #111;
+    color: #000;  /* Use pure black for headings */
     font-family: Aes;
     display: block;
-    letter-spacing: 5px; /* Increased letter-spacing for more stretched text */
+    letter-spacing: 5px;
     text-align: left;
     max-width: 100%;
     line-height: 1.2;
     font-weight: bold;
-    margin-bottom: 0rem; /* Increased margin-bottom for more space below the header */
+    margin-bottom: 0rem;
 }
 
 h2 {
     font-family: Aes;
     font-weight: bold;
+    color: #000; /* Make h2 text pure black as well */
 }
 
 h1 a {
@@ -61,10 +85,11 @@ h1 a:hover, h1 a:focus {
     margin-bottom: 2rem;
 }
 
+/* Updated hr with a pure black line */
 hr {
     border: none;
     margin: 1.5rem 0;
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid #000;  /* Changed from #ccc/#222 to pure black */
     position: relative;
     top: -1px;
 }
@@ -110,28 +135,27 @@ blockquote {
 
 @media (min-width: 30rem) {
     h1 {
-        font-size: 5rem; /* Increased size for larger screens */
+        font-size: 5rem;
         margin-bottom: 2rem;
     }
 }
 
 .location {
     display: flex;
-    align-items: center; /* Keeps the text aligned with the icon */
+    align-items: center;
     font-size: 1.5rem;
-    color: black;
+    color: #000;  /* Make location text pure black */
     margin-bottom: 0.3rem;
 }
 
 .location-text {
-    margin-top: -22px; /* Adjust the value to move the text up */
-    margin-left: 5px; /* Add a small margin to move the text to the right */
+    margin-top: -22px;
+    margin-left: 5px;
 }
 
 .hobbies-container {
     display: flex;
     align-items: center;
-    /* Removed justify-content: space-between */
 }
 
 .hobbies-container a {
@@ -193,26 +217,42 @@ blockquote {
     filter: brightness(0) saturate(100%) invert(92%) sepia(81%) saturate(3300%) hue-rotate(5deg) brightness(80%) contrast(98%);
 }
 
-.linkedin-link {
-    background: linear-gradient(to right, #155259, #3d9ea9); /* Ocean-blue gradient */
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-.leetcode-link {
-    background: linear-gradient(to right, #525915, #f5c650); /* Black to yellow gradient */
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-.github-link {
-    background: linear-gradient(to right, #5f3e90, #9355ee); /* Purple to black gradient */
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
+/* Base state for social link texts */
+.linkedin-link,
+.leetcode-link,
+.github-link,
 .telegram-link {
-    background: linear-gradient(to right, #3db3dc, #1288b1); /* White to blue gradient */
+    display: inline-block; /* Allow transform animations */
+    color: #000;           /* Default text is black */
+    background-size: 0% 100%;       /* Start with no visible gradient */
+    background-repeat: no-repeat;
+    background-clip: text;
     -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    -webkit-text-fill-color: currentColor; /* Fills text with the current color (#000) */
+    transition: background-size 0.3s ease, transform 0.3s ease, -webkit-text-fill-color 0.3s ease;
 }
+
+/* Apply each individual gradient as the background image */
+.linkedin-link {
+    background-image: linear-gradient(to right, #fa8d8d, #fc5c5c);
+}
+.leetcode-link {
+    background-image: linear-gradient(to right, #f2e75c, #f5c650);
+}
+.github-link {
+    background-image: linear-gradient(to right, #ff71f6, #fe37f2);
+}
+.telegram-link {
+    background-image: linear-gradient(to right, #72fff2, #26ffeb);
+}
+
+/* Hover state: reveal the gradient and animate a slight upward movement */
+.linkedin-link:hover,
+.leetcode-link:hover,
+.github-link:hover,
+.telegram-link:hover {
+    background-size: 100% 100%;   /* Animate the gradient to fully cover the text */
+    transform: translateY(-3px);  /* A slight upward shift */
+    -webkit-text-fill-color: transparent; /* Makes the text use the background gradient */
+}
+

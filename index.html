@@ -1,93 +1,91 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="Personal website">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Martin Fesenko</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="Personal website">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Martin Fesenko</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Alternatively, you can embed the CSS below in a <style> tag here -->
 </head>
 <body>
-<div class="container">
-    <h1><a href="./">Martin Fesenko &lt;/&gt;</a></h1>
+  <!-- Background Image Container -->
+  <div class="background-image"></div>
 
-    <p>Python Backend Developer | Software Engineer 🧑🏻‍💻</p>
+  <div class="container">
+      <h1><a href="./">Martin Fesenko &lt;/&gt;</a></h1>
+      <p>Python Backend Developer | Software Engineer 🧑🏻‍💻</p>
 
-    <img style="float:left;" height="28" width="28" src="img/location-50.svg" title="location">&nbsp;
-    <p class="location-text" target="_blank">Lviv, Ukraine</p>
-    
-    <hr>
-    <div class="social-links">
-        <img style="float:left;" height="32" width="32" src="img/linkedin.svg" title="linkedin">&nbsp;
-        <a class="linkedin-link" target="_blank" href="https://www.linkedin.com/in/martin-fes/">
-            Thrive in social setting
-        </a><br><br>
-        
-        <img style="float:left;" height="32" width="32" src="img/leetcode.svg" title="leetcode">&nbsp;
-        <a class="leetcode-link" target="_blank" href="https://leetcode.com/u/LustForCode/">
-            Excel at problem-solving as well
-        </a><br><br>
-        
-        <img style="float:left;" height="32" width="32" src="img/github.svg" title="github">&nbsp;
-        <a class="github-link" target="_blank" href="https://github.com/TheCodeLuster">
-            Unveiling my projects to the world
-        </a><br><br>
-        
-        <img style="float:left;" height="32" width="32" src="img/telegram.svg" title="telegram">&nbsp;
-        <a class="telegram-link" target="_blank" href="https://t.me/yMartifull">
-            Do not hesitate to get in touch if intrigued
-        </a><br><br>
-    </div>
-    <hr>    
-
-    <div class="hobbies-container">
-        <h2>Hobbies</h2>
-        <a class="chess-icon" target="_blank" href="https://www.chess.com/stats/overview/karnavaal46/0?">
-            <img height="32" width="32" src="img/chess.svg" title="Chess">
-        </a>
-        <a class="waterpolo-icon" id="waterpolo-icon" href="javascript:void(0);">
-            <img height="32" width="32" src="img/waterpolo.svg" title="Waterpolo">
-        </a>
-        <a class="keyboard-icon" target="_blank" href="https://monkeytype.com/profile/Martyyy46">
-            <img height="32" width="32" src="img/keyboard.svg" title="Monkeytype">
-        </a>
-    </div>
-    
-    
-    <!-- Waterpolo Modal -->
-    <div id="waterpolo-modal" class="modal">
-      <span class="close">&times;</span>
-      <img class="modal-content" id="waterpolo-img" src="img/waterpolo-card.jpeg" alt="Waterpolo">
-    </div>
-    
-    
-
-    <hr>
-    <center>
-        <p>In the face of ambiguity, refuse the temptation to guess</p>
-    </center>
-
-    <script>
-        // When Waterpolo icon is clicked, display the modal
-        document.getElementById('waterpolo-icon').addEventListener('click', function() {
-            document.getElementById('waterpolo-modal').style.display = 'block';
-        });
-        
-        // When the close element (×) is clicked, hide the modal
-        document.querySelector('.close').addEventListener('click', function() {
-            document.getElementById('waterpolo-modal').style.display = 'none';
-        });
-        
-        // Also hide the modal if the user clicks outside the modal content
-        window.addEventListener('click', function(event) {
-            var modal = document.getElementById('waterpolo-modal');
-            if (event.target === modal) {
-                modal.style.display = 'none';
-            }
-        });
-      </script>
+      <img style="float:left;" height="28" width="28" src="img/location-50.svg" title="location">&nbsp;
+      <p class="location-text" target="_blank">Lviv, Ukraine</p>
       
+      <hr>
+      <div class="social-links">
+          <img style="float:left;" height="32" width="32" src="img/linkedin.svg" title="linkedin">&nbsp;
+          <a class="linkedin-link" target="_blank" href="https://www.linkedin.com/in/martin-fes/">
+              Thrive in social setting
+          </a><br><br>
+          
+          <img style="float:left;" height="32" width="32" src="img/leetcode.svg" title="leetcode">&nbsp;
+          <a class="leetcode-link" target="_blank" href="https://leetcode.com/u/LustForCode/">
+              Excel at problem-solving as well
+          </a><br><br>
+          
+          <img style="float:left;" height="32" width="32" src="img/github.svg" title="github">&nbsp;
+          <a class="github-link" target="_blank" href="https://github.com/TheCodeLuster">
+              Unveiling my projects to the world
+          </a><br><br>
+          
+          <img style="float:left;" height="32" width="32" src="img/telegram.svg" title="telegram">&nbsp;
+          <a class="telegram-link" target="_blank" href="https://t.me/yMartifull">
+              Do not hesitate to get in touch if intrigued
+          </a><br><br>
+      </div>
+      <hr>    
+      <div class="hobbies-container">
+          <h2>Hobbies</h2>
+          <a class="chess-icon" target="_blank" href="https://www.chess.com/stats/overview/karnavaal46/0?">
+              <img height="32" width="32" src="img/chess.svg" title="Chess">
+          </a>
+          <a class="waterpolo-icon" id="waterpolo-icon" href="javascript:void(0);">
+              <img height="32" width="32" src="img/waterpolo.svg" title="Waterpolo">
+          </a>
+          <a class="keyboard-icon" target="_blank" href="https://monkeytype.com/profile/Martyyy46">
+              <img height="32" width="32" src="img/keyboard.svg" title="Monkeytype">
+          </a>
+      </div>
+      
+      <!-- Waterpolo Modal -->
+      <div id="waterpolo-modal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="waterpolo-img" src="img/waterpolo-card.jpeg" alt="Waterpolo">
+      </div>
+      
+      <hr>
+      <center>
+          <p>In the face of ambiguity, refuse the temptation to guess</p>
+      </center>
+  </div>
 
-</div>
+  <script>
+      // When Waterpolo icon is clicked, display the modal
+      document.getElementById('waterpolo-icon').addEventListener('click', function() {
+          document.getElementById('waterpolo-modal').style.display = 'block';
+      });
+      
+      // When the close element (×) is clicked, hide the modal
+      document.querySelector('.close').addEventListener('click', function() {
+          document.getElementById('waterpolo-modal').style.display = 'none';
+      });
+      
+      // Also hide the modal if the user clicks outside the modal content
+      window.addEventListener('click', function(event) {
+          var modal = document.getElementById('waterpolo-modal');
+          if (event.target === modal) {
+              modal.style.display = 'none';
+          }
+      });
+  </script>
 </body>
 </html>
