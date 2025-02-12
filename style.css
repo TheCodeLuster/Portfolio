@@ -3,6 +3,16 @@
     src: url(./fonts/Aesthetic_Beauty\ CF.otf);
 }
 
+@font-face {
+    font-family: Aess;
+    src: url(./fonts/aes_2.ttf);
+}
+
+@font-face {
+    font-family: Aesss;
+    src: url(./fonts/aes_3.ttf);
+}
+
 html {
     font-family: Aes, sans-serif;
     -ms-text-size-adjust: 100%;
@@ -26,20 +36,8 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: url('img/clouds.jpg') center center / cover no-repeat;
+    background: url('img/1.png');
     z-index: -1;
-}
-
-/* Overlay for darkening and slight blur */
-.background-image::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.3); /* Adjust opacity if needed */
-    filter: blur(2px);
 }
 
 h1 {
@@ -234,16 +232,16 @@ blockquote {
 
 /* Apply each individual gradient as the background image */
 .linkedin-link {
-    background-image: linear-gradient(to right, #ff4040, #ff2323);
+    background-image: linear-gradient(to right, #c70039 , #900c3f);
 }
 .leetcode-link {
-    background-image: linear-gradient(to right, #f2e75c, #f5c650);
+    background-image: linear-gradient(to right, #ffc300, #c0a40b);
 }
 .github-link {
-    background-image: linear-gradient(to right, #ff71f6, #fe37f2);
+    background-image: linear-gradient(to right, #a741f7, #8817e1);
 }
 .telegram-link {
-    background-image: linear-gradient(to right, #72fff2, #26ffeb);
+    background-image: linear-gradient(to right, #1fe0cc, #0faf9e);
 }
 
 /* Hover state: reveal the gradient and animate a slight upward movement */
@@ -258,7 +256,7 @@ blockquote {
 
 /* Section heading */
 .language-section h2 {
-    font-family: Aes, sans-serif;
+    font-family: Aes, Aess;
     color: #000;
     margin-bottom: 10px;
   }
@@ -270,7 +268,7 @@ blockquote {
     padding: 8px 12px;
     margin-bottom: 10px;
     border-radius: 6px;
-    font-family: Aes, sans-serif;
+    font-family: Aes, Aess;
     font-size: 16px;
     font-weight: bold;
     color: #000;                /* Dark text */
@@ -300,11 +298,12 @@ blockquote {
   }
   
   /* On hover, fade in the flag background */
-  .language:hover::before {
+  /*.language:hover::before {
     opacity: 1;
     filter: blur(2px); /* Slightly reduce blur on hover to focus the flag */
-  }  
+  /*}  
   
+  /*
   /* Flag background images for each language */
   .language.ukr::before {
     background-image: url('https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExMXhmenlzc3JqM3dxdnFpajhyOWhuODVvNTg2YnlzaHk1OWtjNGw0cSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/QEYNFvGaDDF5K/giphy.gif');
@@ -322,6 +321,7 @@ blockquote {
     background-image: url('./img/germany.gif');
   }
       
+
 /* Proficiency text styling */
 .language .sub {
     display: block;          /* Forces it onto a new line */
@@ -407,14 +407,14 @@ blockquote {
     height: 50px;
     background: #e8e8e0;
     margin-top: 80px;
-    padding: 15px;
-    font-size: 12px;
+    padding: 13px;
+    font-size: 11px;
     position: relative;
     z-index: 10;
-    color: #222;
+    color: #000;
     text-align: left;
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
-    font-family: Aes;
+    font-family: Aesss;
   }
   
   .notebook-skin:before {
@@ -432,7 +432,7 @@ blockquote {
     height: 100%;
     width: 175px;
     position: absolute;
-    background-color: #fbfae8;
+    background-color: #b5bfbe;
     z-index: 0;
     border-radius: 5px 16px 16px 5px;
     overflow: hidden;
@@ -467,7 +467,6 @@ blockquote {
     margin: 0 auto;           /* Center the container horizontally on the page */
 }
 
-
 /* Bookshelf Title (existing) */
 .bookshelf-title {
     font-size: 1.5rem;
@@ -486,7 +485,7 @@ blockquote {
 .tv-title {
     font-size: 1.5rem;
     font-weight: bold;
-    background-image: linear-gradient(90deg, #ebce3a, #e9ed18);
+    background-image: linear-gradient(90deg, #b9910a, #9e7f17);
     background-clip: text;
     -webkit-background-clip: text;
     color: transparent;
