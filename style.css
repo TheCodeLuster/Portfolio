@@ -335,3 +335,210 @@ blockquote {
     font-weight: normal;
   }
   
+/* -------------------------------
+   Moleskine Notebook Styles
+   ------------------------------- */
+
+/* Notebook container (acts as the “card”) */
+.moleskine-notebook {
+    height: 250px;
+    width: 175px;
+    position: relative;
+    transition: 0.4s ease-in-out;
+    border-radius: 5px 15px 15px 5px;
+    transform-origin: left center;
+    display: inline-block;
+    margin: 30px auto; /* Centers the notebook within its container */
+    perspective: 800px;
+  }
+  
+  /* On hover, the entire notebook tilts slightly */
+  .moleskine-notebook:hover {
+    transform: rotateZ(-10deg);
+  }
+  
+  /* When hovering, the notebook cover rotates to reveal the page */
+  .moleskine-notebook:hover .notebook-cover {
+    transform: rotateY(-50deg);
+    z-index: 999;
+    box-shadow: 20px 10px 50px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Notebook Cover */
+  .notebook-cover {
+    background: #cc4b48;  /* Default cover color */
+    height: 250px;
+    width: 175px;
+    position: absolute;
+    border-radius: 5px 15px 15px 5px;
+    z-index: 10;
+    transition: 0.5s linear;
+    transform-style: preserve-3d;
+    transform-origin: left center;
+  }
+  
+  /* “Side edge” of the cover (a decorative gradient) */
+  .notebook-cover:before {
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: calc(100% + 2px);
+    top: -1px;
+    z-index: 100;
+    border-radius: 2px;
+    right: 25px;
+    transition: 2s ease;
+    background: linear-gradient(
+      to right,
+      #b03a3e 0%,
+      #cc4b48 12%,
+      #b03a3e 25%,
+      #cc4b48 37%,
+      #b03a3e 50%,
+      #cc4b48 62%,
+      #b03a3e 75%,
+      #cc4b48 87%,
+      #b03a3e 100%
+    );
+  }
+  
+  /* Notebook Skin – the inner header area */
+  .notebook-skin {
+    height: 50px;
+    background: #e8e8e0;
+    margin-top: 80px;
+    padding: 15px;
+    font-size: 12px;
+    position: relative;
+    z-index: 10;
+    color: #222;
+    text-align: left;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+    font-family: Aes;
+  }
+  
+  .notebook-skin:before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 15px;
+    left: 0;
+    bottom: 0;
+    background: #cddc39;
+  }
+  
+  /* Notebook Page – the “inside” of the notebook */
+  .notebook-page {
+    height: 100%;
+    width: 175px;
+    position: absolute;
+    background-color: #fbfae8;
+    z-index: 0;
+    border-radius: 5px 16px 16px 5px;
+    overflow: hidden;
+  }
+  
+  /* -------------------------------
+     Existing Media Section Adjustments
+     ------------------------------- */
+  
+  /* (Optional) Center the media section contents if not already set */
+  .media-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem 0;
+  }
+  
+  /* Optional: Style the media card text */
+  .media-card p {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
+
+/* Container to hold both media sections side by side */
+.media-container {
+    display: flex;
+    justify-content: center;  /* Center the items rather than spacing them out */
+    align-items: flex-start;
+    gap: 12rem;                /* Reduced gap between the sections */
+    max-width: 800px;         /* Optional: limit the overall width */
+    margin: 0 auto;           /* Center the container horizontally on the page */
+}
+
+
+/* Bookshelf Title (existing) */
+.bookshelf-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    background-image: linear-gradient(90deg, #8a2be2, #5a098d);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    background-size: 200% 100%;
+    animation: gradient-scroll 10s linear infinite;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+/* TV Title styling (now centered and with a bottom margin) */
+.tv-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    background-image: linear-gradient(90deg, #ebce3a, #e9ed18);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    background-size: 200% 100%;
+    animation: gradient-scroll 10s linear infinite;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+/* Additional adjustments for TV placement in the combined media section */
+.tv-wrapper.tv-adjusted {
+    margin-top: 45px;    /* Moves the TV down a bit */
+    margin-left: -20px;  /* Shifts the TV slightly to the left */
+}
+
+/* Ensure the TV wrapper is positioned relative for proper overlaying */
+.tv-wrapper {
+    position: relative;
+    display: inline-block;
+    width: 300px;  /* Adjust to match your TV frame image */
+    height: auto;
+}
+
+/* The TV frame image (should be a PNG with a transparent screen area) */
+.tv-frame {
+    display: block;
+    width: 100%;
+    height: auto;
+    position: relative;
+    z-index: 2;
+}
+
+/* The GIF image placed behind the TV frame to show through the transparent screen */
+/* Initially hidden using opacity; fades in on hover */
+.tv-gif {
+    position: absolute;
+    top: 20px;       /* Adjust this value to align with your TV frame's screen area */
+    left: 10px;      /* Adjust this value to align with your TV frame's screen area */
+    width: 240px;    /* Adjust so the GIF fits within the TV screen */
+    height: 160px;
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+/* Reveal the GIF when hovering over the TV wrapper */
+.tv-wrapper:hover .tv-gif {
+    opacity: 1;
+}
+
+/* Moving Gradient Animation (used by both titles) */
+@keyframes gradient-scroll {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}

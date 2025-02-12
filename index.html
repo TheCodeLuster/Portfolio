@@ -86,10 +86,42 @@
           
       <hr>
 
-        <div>
-            <p>My movie library</p>
-            <p>My bookshelf</p>
-        </div>
+<!-- Combined Media Section -->
+<div class="media-container">
+    <!-- Bookshelf (Left) -->
+    <div class="media-section">
+      <div class="media-card bookshelf-card">
+        <p class="bookshelf-title">My bookshelf</p>
+        <a href="https://example.com/bookshelf" class="card" target="_blank">
+          <div class="moleskine-notebook">
+            <div class="notebook-cover">
+              <div class="notebook-skin">
+                За зірки, що чують,<br>і мрії, які збуваються
+              </div>
+            </div>
+            <div class="notebook-page"></div>
+          </div>
+        </a>
+      </div>
+    </div>
+  
+    <!-- TV for Movie Library (Right) -->
+    <div class="media-section">
+      <div class="media-card tv-card">
+        <p class="tv-title">My movie library</p>
+        <a href="https://www.imdb.com/user/ur176369263/watchlist/" target="_blank" class="tv-link">
+          <div class="tv-wrapper tv-adjusted">
+            <!-- The GIF that will be visible inside the TV screen (initially hidden) -->
+            <img src="./img/camera.gif" alt="Movie Library GIF" class="tv-gif">
+            <!-- The TV frame image (should have a transparent screen area) -->
+            <img src="./img/static-tv.png" alt="TV Frame" class="tv-frame">
+          </div>
+        </a>
+      </div>
+    </div>
+</div>
+
+     
       <hr>  
       <center>
           <p>In the face of ambiguity, refuse the temptation to guess</p>
