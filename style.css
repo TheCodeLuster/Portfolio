@@ -234,7 +234,7 @@ blockquote {
 
 /* Apply each individual gradient as the background image */
 .linkedin-link {
-    background-image: linear-gradient(to right, #fa8d8d, #fc5c5c);
+    background-image: linear-gradient(to right, #ff4040, #ff2323);
 }
 .leetcode-link {
     background-image: linear-gradient(to right, #f2e75c, #f5c650);
@@ -256,3 +256,82 @@ blockquote {
     -webkit-text-fill-color: transparent; /* Makes the text use the background gradient */
 }
 
+/* Section heading */
+.language-section h2 {
+    font-family: Aes, sans-serif;
+    color: #000;
+    margin-bottom: 10px;
+  }
+
+  /* Each language container with no default background */
+  .language {
+    display: inline-block;      /* Shrink-to-fit content */
+    position: relative;         /* For positioning the pseudo-element */
+    padding: 8px 12px;
+    margin-bottom: 10px;
+    border-radius: 6px;
+    font-family: Aes, sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    color: #000;                /* Dark text */
+    text-align: left;
+    background: none;           /* No background by default */
+    overflow: hidden;           /* Hide the pseudo-element overflow */
+  }
+
+  .language::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    opacity: 0; /* Hidden initially */
+    transition: opacity 0.3s ease-in-out;
+    z-index: -1; /* Place behind the text */
+    
+    /* Soft and messy border with blurred effect */
+    box-shadow: 0 0 40px 25px rgba(0, 0, 0, 0.1);
+    filter: blur(4px); /* Adds the messy, eraser-like blur */
+    border-radius: 10px; /* Optional: adds rounded corners to the blurred edges */
+  }
+  
+  /* On hover, fade in the flag background */
+  .language:hover::before {
+    opacity: 1;
+    filter: blur(2px); /* Slightly reduce blur on hover to focus the flag */
+  }  
+  
+  /* Flag background images for each language */
+  .language.ukr::before {
+    background-image: url('https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExMXhmenlzc3JqM3dxdnFpajhyOWhuODVvNTg2YnlzaHk1OWtjNGw0cSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/QEYNFvGaDDF5K/giphy.gif');
+  }
+  
+  .language.eng::before {
+    background-image: url('https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExeWM4b3U3cGxmb3J5aWY1aHF1dHd0cXNqazMxNWQ4eDA2bzRwbjVkdyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/sFMDqop2ku4M0/giphy.gif');
+  }
+  
+  .language.pl::before {
+    background-image: url('./img/poland.gif');
+  }
+  
+  .language.ger::before {
+    background-image: url('./img/germany.gif');
+  }
+      
+/* Proficiency text styling */
+.language .sub {
+    display: block;          /* Forces it onto a new line */
+    font-size: 0.8em;         /* Make it smaller */
+    color: #000;              /* Dark text color */
+    margin-top: 4px;          /* Adds a little spacing between lines */
+    text-align: center;       /* Centers the text horizontally */
+  }
+  
+  .language .main {
+    font-weight: normal;
+  }
+  
