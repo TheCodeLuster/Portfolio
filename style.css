@@ -530,3 +530,11 @@ blockquote {
     letter-spacing: 1px;
     color: #000;
   }
+
+.projects a {
+    font-size: 20px; /* Make the text bigger */
+    font-weight: bold; /* Make the text bold */
+    text-decoration: none; /* Optional: remove underline if desired */
+    color: #000;
+}
+
