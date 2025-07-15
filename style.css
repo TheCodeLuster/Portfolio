@@ -180,10 +180,22 @@ blockquote {
 }
 
 .modal-content {
-    margin: auto;
     display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     max-width: 80%;
     max-height: 80%;
+    margin-bottom: 100px;
+}
+
+.modal-content-uni {
+    margin: auto;
+    display: block;
+    max-width: 100%;
+    max-height: 100%;
+    clip-path: inset(130px 0 130px 0);
 }
 
 .close {
@@ -208,6 +220,11 @@ blockquote {
 /* Waterpolo icon: Blue */
 .waterpolo-icon:hover img {
     filter: brightness(0) saturate(100%) invert(48%) sepia(93%) saturate(3750%) hue-rotate(196deg) brightness(90%) contrast(101%);
+}
+
+/* University icon: Red */
+.uni-icon:hover img {
+    filter: brightness(0) saturate(100%) invert(12%) sepia(99%) saturate(7499%) hue-rotate(359deg) brightness(103%) contrast(102%);
 }
 
 /* Keyboard icon: Yellow */
@@ -525,7 +542,7 @@ blockquote {
 }
 
 .bent-text {
-    font-size: 17px;
+    font-size: 20px;
     font-weight: bold;
     letter-spacing: 1px;
     color: #000;

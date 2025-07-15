@@ -73,13 +73,21 @@
           <a class="keyboard-icon" target="_blank" href="https://monkeytype.com/profile/Martyyy46">
               <img height="32" width="32" src="img/keyboard.svg" title="Monkeytype">
           </a>
+          <a class="uni-icon" id="uni-icon" href="javascript:void(0);">
+              <img height="32" width="32" src="img/uni.svg" title="University">
+          </a>
       </div>
-      
-      <!-- Waterpolo Modal -->
+
+      <!--Images_modals-->
       <div id="waterpolo-modal" class="modal">
         <span class="close">&times;</span>
         <img class="modal-content" id="waterpolo-img" src="img/waterpolo-card.jpeg" alt="Waterpolo">
       </div>
+      <div id="uni-modal" class="modal">
+        <span class="close">&times;</span>
+        <img class="modal-content-uni" id="uni-img" src="img/uni-card.jpg" alt="University">
+      </div>
+
       
       <hr>
 
@@ -215,79 +223,77 @@
               modal.style.display = 'none';
           }
       });
-  </script>
-  <script>
-  const canvas = document.getElementById('background-canvas');
-const ctx = canvas.getContext('2d');
+      // University icon modal
+      const uniIcon = document.getElementById('uni-icon');
+      const uniModal = document.getElementById('uni-modal');
+      const uniClose = uniModal.querySelector('.close');
 
-// Resize canvas to full screen
-function resizeCanvas() {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-}
-window.addEventListener('resize', resizeCanvas);
-resizeCanvas();
+      uniIcon.addEventListener('click', () => {
+        uniModal.style.display = 'block';
+      });
 
-// Initialize particles
-const particles = [];
-const numParticles = 100;
-const speed = 0.2; // Adjust this value to control speed (e.g., 0.5 for half speed)
+      uniClose.addEventListener('click', () => {
+        uniModal.style.display = 'none';
+      });
 
-for (let i = 0; i < numParticles; i++) {
-    particles.push({
-        x: Math.random() * canvas.width,    // Random x position
-        y: Math.random() * canvas.height,   // Random y position
-        vx: (Math.random() - 0.5) * 4 * speed, // Horizontal velocity
-        vy: (Math.random() - 0.5) * 4 * speed  // Vertical velocity
-    });
-}
-
-// Animation loop
-function animate() {
-    // Clear canvas with white background
-    ctx.fillStyle = 'white';
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
-    ctx.fillStyle = 'black';
-
-    // Update and draw particles
-    for (const p of particles) {
-        p.x += p.vx; // Move horizontally
-        p.y += p.vy; // Move vertically
-
-        // Bounce off walls
-        if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
-        if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
-
-        // Draw particle as a small circle
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, 2, 0, Math.PI * 2);
-        ctx.fill();
-    }
-
-    // Draw connection lines between nearby particles
-    for (let i = 0; i < particles.length; i++) {
-        for (let j = i + 1; j < particles.length; j++) {
-            const p1 = particles[i];
-            const p2 = particles[j];
-            const dx = p1.x - p2.x;
-            const dy = p1.y - p2.y;
-            const distance = Math.sqrt(dx * dx + dy * dy);
-
-            if (distance < 100) {
-                const opacity = 1 - distance / 100;
-                ctx.beginPath();
-                ctx.moveTo(p1.x, p1.y);
-                ctx.lineTo(p2.x, p2.y);
-                ctx.strokeStyle = `rgba(0, 0, 0, ${opacity})`;
-                ctx.stroke();
-            }
+      window.addEventListener('click', (event) => {
+        if (event.target === uniModal) {
+          uniModal.style.display = 'none';
         }
-    }
+      });
+  </script>
+  
+<style>
+  #background-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+  }
+  .container {
+    position: relative;
+    z-index: 1;
+  }
+</style>
 
-    requestAnimationFrame(animate);
-}
-
-animate();
+<script src="https://cdn.jsdelivr.net/npm/tsparticles@2.11.1/tsparticles.bundle.min.js"></script>
+<script>
+  tsParticles.load("background-canvas", {
+    fullScreen: { enable: false },
+    background: { color: "transparent" },
+    fpsLimit: 100,
+    particles: {
+      number: { value: 80, density: { enable: true, area: 2500 } },
+      color: { value: "#dddddd" },
+      shape: { type: "circle" },
+      opacity: { value: 0.8 },
+      size: { value: 9, random: { enable: true, minimumValue: 4 } },
+      links: {
+        enable: true,
+        distance: 150,
+        color: "#dddddd",
+        opacity: 10,
+        width: 4
+      },
+      move: {
+        enable: true,
+        speed: 1.9,
+        bounce: true
+      }
+    },
+    interactivity: {
+      events: {
+        onHover: { enable: true },
+        onClick: { enable: true },
+        resize: true
+      }
+    },
+    detectRetina: true
+  });
 </script>
+
+
 </body>
 </html>
