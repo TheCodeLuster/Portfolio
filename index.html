@@ -14,19 +14,22 @@
     <!-- <link rel="icon" href="img/favicon.png" type="image/png"> -->
   <link rel="stylesheet" href="style.css">
   <!-- Alternatively, you can embed the CSS below in a <style> tag here -->
+    <script src="https://twemoji.maxcdn.com/v/latest/twemoji.min.js" crossorigin="anonymous"></script>
+
 </head>
 <body>
   <!-- Background Image Container -->
   <canvas id="background-canvas"></canvas>
 
   <div class="container">
+    <section class="fade-in">
       <h1><a href="./">Martin Fesenko &lt;/&gt;</a></h1>
-      <p>Python Backend Developer | Software Engineer 🧑🏻‍💻</p>
+      <p class="emoji-text">Python Backend Developer | Software Engineer 💻</p>
 
       <img style="float:left;" height="28" width="28" src="img/location-50.svg" title="location">&nbsp;
       <p class="location-text" target="_blank">Lviv, Ukraine</p>
-    
-      <hr>
+    </section>
+      
         <h2>Projects (Test)</h2>
         <div class="projects">
                 <a href="https://chipper-pika-b52a1a.netlify.app/">
@@ -62,8 +65,8 @@
           </a><br><br>
       </div>
       <hr>    
-      <div class="hobbies-container">
-          <h2>Hobbies</h2>
+      <h2>Hobbies</h2>
+      <div class="hobbies-container fade-in">
           <a class="chess-icon" target="_blank" href="https://www.chess.com/stats/overview/karnavaal46/0?">
               <img height="32" width="32" src="img/chess.svg" title="Chess">
           </a>
@@ -294,6 +297,37 @@
   });
 </script>
 
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    // mark every direct child of .container as "fade-in"
+    document.querySelectorAll(".container > *").forEach(el => el.classList.add("fade-in"));
+
+    const obs = new IntersectionObserver((entries, io) => {
+      entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add("visible");
+      } else {
+        e.target.classList.remove("visible");
+      }
+      });
+    }, { rootMargin: "0px 0px -10% 0px" });
+
+    document.querySelectorAll(".fade-in").forEach(el => obs.observe(el));
+  });
+</script>
+<script>
+  window.addEventListener('load', () => {
+    window.scrollTo(0, 0);
+  });
+</script>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    twemoji.parse(document.body, {
+      folder: 'svg',
+      ext: '.svg'
+    });
+  });
+</script>
 
 </body>
 </html>

@@ -22,12 +22,19 @@ html {
 /* Set all body text to pure black */
 body {
     margin: 0;
-    font: 18px/1.5 Aes, sans-serif;
+    font: 31px/1.5 Aes, sans-serif;
     color: #000;  /* Changed from #222 to pure black */
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
+    scroll-snap-type: y proximity;
+    overflow-y: scroll;
+}
+
+html, body {
+  scroll-behavior: smooth;
+  height: 100%;
 }
 
 .background-image {
@@ -41,9 +48,9 @@ body {
 }
 
 h1 {
-    font-size: 4rem;
+    font-size: 5rem;
     margin: 0.67em 0;
-    color: #000;  /* Use pure black for headings */
+    color: #000;  /* Use pure black for hobbies-container */
     font-family: Aes;
     display: block;
     letter-spacing: 5px;
@@ -58,6 +65,7 @@ h2 {
     font-family: Aes;
     font-weight: bold;
     color: #000; /* Make h2 text pure black as well */
+    font-size: 60px;
 }
 
 h1 a {
@@ -70,10 +78,13 @@ h1 a:hover, h1 a:focus {
 }
 
 .container {
-    max-width: 100%;
-    margin: 0 auto;
-    padding: 2rem 1rem;
-    text-align: left;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 10rem 10rem 20rem;   /* ↑ 6rem top, 1rem sides, 2rem bottom */
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .centered-text {
@@ -133,7 +144,7 @@ blockquote {
 
 @media (min-width: 30rem) {
     h1 {
-        font-size: 5rem;
+        font-size: 7rem;
         margin-bottom: 2rem;
     }
 }
@@ -147,19 +158,21 @@ blockquote {
 }
 
 .location-text {
-    margin-top: -22px;
-    margin-left: 5px;
+    margin-top: -50px;
 }
 
 .hobbies-container {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  padding: 2rem 0;
 }
 
-.hobbies-container a {
-    margin-left: 30px;
-    margin-top: -3px;
-    transition: transform 0.2s, filter 0.2s;
+.hobbies-container a img {
+  height: 64px;
+  width: 64px;
+  transition: transform 0.2s, filter 0.2s;
 }
 
 .hobbies-container h2 {
@@ -180,14 +193,10 @@ blockquote {
 }
 
 .modal-content {
+    margin: auto;
     display: block;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    max-width: 80%;
-    max-height: 80%;
-    margin-bottom: 100px;
+    max-width: 100%;
+    max-height: 100%;
 }
 
 .modal-content-uni {
@@ -549,7 +558,7 @@ blockquote {
   }
 
 .projects a {
-    font-size: 20px; /* Make the text bigger */
+    font-size: 45px; /* Make the text bigger */
     font-weight: bold; /* Make the text bold */
     text-decoration: none; /* Optional: remove underline if desired */
     color: #000;
@@ -562,4 +571,47 @@ blockquote {
     width: 100%;
     height: 100%;
     z-index: -1;
+}
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.container > * {
+  min-height: 100vh;  
+  scroll-snap-align: start;
+  padding: 4rem 0;
+  box-sizing: border-box;
+}
+
+/* make sure each direct child animates separately */
+.fade-in > * {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+/* when the section gains .visible, animate its children in */
+.fade-in.visible > * {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* stagger only the first .fade-in section’s children */
+.fade-in:first-of-type.visible > h1 {
+  transition-delay: 0s;
+}
+.fade-in:first-of-type.visible > p:not(.location-text) {
+  transition-delay: 0.3s;
+}
+.fade-in:first-of-type.visible > img,
+.fade-in:first-of-type.visible > p.location-text {
+  transition-delay: 0.6s;
 }
