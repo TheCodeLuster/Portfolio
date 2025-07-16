@@ -65,7 +65,8 @@ h2 {
     font-family: Aes;
     font-weight: bold;
     color: #000; /* Make h2 text pure black as well */
-    font-size: 60px;
+    font-size: 70px;
+    letter-spacing: 5px;
 }
 
 h1 a {
@@ -170,8 +171,8 @@ blockquote {
 }
 
 .hobbies-container a img {
-  height: 64px;
-  width: 64px;
+  height: 120px;
+  width: 190px;
   transition: transform 0.2s, filter 0.2s;
 }
 
@@ -195,8 +196,8 @@ blockquote {
 .modal-content {
     margin: auto;
     display: block;
-    max-width: 100%;
-    max-height: 100%;
+    max-width: 65%;
+    max-height: 80%;
 }
 
 .modal-content-uni {
@@ -253,7 +254,8 @@ blockquote {
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: currentColor; /* Fills text with the current color (#000) */
-    transition: background-size 0.3s ease, transform 0.3s ease, -webkit-text-fill-color 0.3s ease;
+    transition: background-size 1.3s ease, transform 1.3s ease, -webkit-text-fill-color 1.3s ease;
+    font-size: 34px;
 }
 
 /* Apply each individual gradient as the background image */
@@ -295,7 +297,7 @@ blockquote {
     margin-bottom: 10px;
     border-radius: 6px;
     font-family: Aes, Aess;
-    font-size: 16px;
+    font-size: 30px;
     font-weight: bold;
     color: #000;                /* Dark text */
     text-align: left;
@@ -370,7 +372,7 @@ blockquote {
     padding: 1rem;
     /* Adjust these values to move the bookshelf */
     margin-top: -55px;  /* Moves it upward */
-    margin-left: 45px; /* Moves it to the left */
+    margin-left: -87px; /* Moves it to the left */
   }
   
   
@@ -430,6 +432,13 @@ blockquote {
     margin: 2rem 0;
     margin-bottom: -60px;
   }
+
+  .media-card p,
+  .bookshelf-title,
+  .tv-title,
+  .music-title {
+    font-size: 6rem;
+  }
   
   /* Optional: Style the media card text */
   .media-card p {
@@ -443,14 +452,33 @@ blockquote {
     display: flex;
     justify-content: center;  /* Center the items rather than spacing them out */
     align-items: flex-start;
-    gap: 0rem;                /* Reduced gap between the sections */
-    max-width: 800px;         /* Optional: limit the overall width */
+    gap: 5rem;                /* Reduced gap between the sections */
+    max-width: 2000px;         /* Optional: limit the overall width */
     margin: 0 auto;           /* Center the container horizontally on the page */
 }
 
+  .book-shelf {
+    width: 350px !important;
+    height: auto !important;
+  }
+
+  .music-gif {
+    width: 200px !important;
+    height: auto !important;
+  }
+
+  .tv-gif {
+    width: 300px !important;
+    height: 210px !important;
+  }
+
+  .media-card p {
+    font-size: 2.5rem;
+  }
+
 /* Bookshelf Title (existing) */
 .bookshelf-title {
-    font-size: 1.5rem;
+    font-size: 2.5rem;
     font-weight: bold;
     background-image: linear-gradient(90deg, #8a2be2, #5a098d);
     background-clip: text;
@@ -464,7 +492,7 @@ blockquote {
 
 /* TV Title styling (now centered and with a bottom margin) */
 .tv-title {
-    font-size: 1.5rem;
+    font-size: 2.5rem;
     font-weight: bold;
     background-image: linear-gradient(90deg, #e7cd17, #bea70c);
     background-clip: text;
@@ -474,12 +502,21 @@ blockquote {
     animation: gradient-scroll 10s linear infinite;
     text-align: center;
     margin-bottom: 1rem;
-    margin-left: -10px;
+    margin-left: 0px;
+}
+
+.music-title,
+.tv-title {
+  margin-left: 3.5rem;
+}
+
+.bookshelf-title {
+  margin-left: -9rem;
 }
 
 /* TV Title styling (now centered and with a bottom margin) */
 .music-title {
-    font-size: 1.5rem;
+    font-size: 2.5rem;
     font-weight: bold;
     background-image: linear-gradient(90deg, #c70039, #900c3f);
     background-clip: text;
@@ -489,13 +526,13 @@ blockquote {
     animation: gradient-scroll 10s linear infinite;
     text-align: center;
     margin-bottom: 1rem;
-    margin-left: -20px;
+    margin-left: -40px;
 }
 
 /* Additional adjustments for TV placement in the combined media section */
 .tv-wrapper.tv-adjusted {
     margin-top: 45px;    /* Moves the TV down a bit */
-    margin-left: -20px;  /* Shifts the TV slightly to the left */
+    margin-left: -80px;  /* Shifts the TV slightly to the left */
 }
 
 /* Ensure the TV wrapper is positioned relative for proper overlaying */
@@ -503,7 +540,7 @@ blockquote {
     position: relative;
     display: inline-block;
     width: 300px;  /* Adjust to match your TV frame image */
-    height: auto;
+    height: 300px;
 }
 
 /* The TV frame image (should be a PNG with a transparent screen area) */
@@ -519,8 +556,8 @@ blockquote {
 /* Initially hidden using opacity; fades in on hover */
 .tv-gif {
     position: absolute;
-    top: -20px;       /* Adjust this value to align with your TV frame's screen area */
-    left: 50px;      /* Adjust this value to align with your TV frame's screen area */
+    top: -10px;       /* Adjust this value to align with your TV frame's screen area */
+    left: 100px;      /* Adjust this value to align with your TV frame's screen area */
     width: 230px;    /* Adjust so the GIF fits within the TV screen */
     height: 150px;
     z-index: 1;
@@ -530,8 +567,8 @@ blockquote {
 
 .music-gif {
     position: absolute;
-    top: -20px;       /* Adjust this value to align with your TV frame's screen area */
-    left: 73px;      /* Adjust this value to align with your TV frame's screen area */
+    top: 0px;       /* Adjust this value to align with your TV frame's screen area */
+    left: 75px;      /* Adjust this value to align with your TV frame's screen area */
     width: 150px;    /* Adjust so the GIF fits within the TV screen */
     height: 150px;
     z-index: 1;
@@ -551,7 +588,7 @@ blockquote {
 }
 
 .bent-text {
-    font-size: 20px;
+    font-size: 47px;
     font-weight: bold;
     letter-spacing: 1px;
     color: #000;
@@ -587,7 +624,7 @@ blockquote {
 .container > * {
   min-height: 100vh;  
   scroll-snap-align: start;
-  padding: 4rem 0;
+  padding: 1rem 0;
   box-sizing: border-box;
 }
 
@@ -595,7 +632,11 @@ blockquote {
 .fade-in > * {
   opacity: 0;
   transform: translateY(20px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    transition:
+    opacity 2s ease-out,
+    transform 2s ease-out,
+    background-size 1.3s ease,
+    -webkit-text-fill-color 1.3s ease;
 }
 
 /* when the section gains .visible, animate its children in */
@@ -614,4 +655,9 @@ blockquote {
 .fade-in:first-of-type.visible > img,
 .fade-in:first-of-type.visible > p.location-text {
   transition-delay: 0.6s;
+}
+
+.phrase {
+  font-size: 3rem;
+  letter-spacing: 3px;
 }
