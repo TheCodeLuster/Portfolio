@@ -159,25 +159,8 @@ blockquote {
 }
 
 .location-text {
-    margin-top: -50px;
-}
-
-.hobbies-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 40px;
-  padding: 2rem 0;
-}
-
-.hobbies-container a img {
-  height: 120px;
-  width: 190px;
-  transition: transform 0.2s, filter 0.2s;
-}
-
-.hobbies-container h2 {
-    margin: 0px;
+    margin-top: -5px;
+    margin-left: 30px;
 }
 
 /* Modal styles */
@@ -588,18 +571,10 @@ blockquote {
 }
 
 .bent-text {
-    font-size: 47px;
-    font-weight: bold;
+    font-size: 48px;
     letter-spacing: 1px;
     color: #000;
   }
-
-.projects a {
-    font-size: 45px; /* Make the text bigger */
-    font-weight: bold; /* Make the text bold */
-    text-decoration: none; /* Optional: remove underline if desired */
-    color: #000;
-}
 
 #background-canvas {
     position: fixed;
@@ -660,4 +635,123 @@ blockquote {
 .phrase {
   font-size: 3rem;
   letter-spacing: 3px;
+}
+
+.download-cv-form {
+  margin-top: -138px;
+  margin-left: 820px;
+}
+
+.download-cv-form button {
+  padding: 1rem 2rem;
+  font-size: 1.25rem;
+  font-family: inherit;
+  color: #000;
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid #000;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.download-cv-form button:hover {
+  background: rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+.projects {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.projects a {
+  flex: 1;
+  width: 550px;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-decoration: none;
+  color: #000;
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid #000;
+  border-radius: 8px;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.projects a:hover {
+  transform: translateY(-20px);
+}
+
+.projects a img {
+  width: 90%;
+  height: 90%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.hobbies-grid {
+  display: grid;
+  gap: 2rem;
+  justify-content: center;
+  grid-template-columns: repeat(2, 405px);
+  grid-template-rows: repeat(2, 170px);
+}
+
+.hobby-form {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  text-align: center;
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #000;
+  border-radius: 12px;
+  background: rgba(255,255,255,0.1);
+  overflow: hidden;
+  transition: transform 0.2s;
+  text-decoration: none;
+  width: 400px;
+  height: 160px;
+}
+
+.hobby-form:hover {
+  transform: translateY(-5px);
+  text-decoration: none;
+}
+
+.hobby-text {
+  z-index: 1;
+  transition: opacity 0.3s ease;
+}
+
+.hobby-icon {
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 120px; height: 120px;
+  transform: translate(-50%,-50%) translateY(20px);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.hobby-form:hover .hobby-text {
+  opacity: 0;
+  text-decoration: none;
+}
+
+.hobby-form:hover .hobby-icon {
+  opacity: 1;
+  animation: levitate 4s ease-in-out infinite;
+}
+
+@keyframes levitate {
+  0%,100%   { transform: translate(-50%,-50%) translateY(10px); }
+  50%       { transform: translate(-50%,-50%) translateY(-10px); }
 }
