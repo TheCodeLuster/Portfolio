@@ -35,6 +35,7 @@ body {
 html, body {
   scroll-behavior: smooth;
   height: 100%;
+  max-width: 100%;
 }
 
 .background-image {
@@ -270,10 +271,10 @@ blockquote {
     font-family: Aes, Aess;
     color: #000;
     margin-bottom: 10px;
+    max-width: 100%;
   }
 
-  /* Each language container with no default background */
-  .language {
+.language {
     display: inline-block;      /* Shrink-to-fit content */
     position: relative;         /* For positioning the pseudo-element */
     padding: 8px 12px;
@@ -286,7 +287,21 @@ blockquote {
     text-align: left;
     background: none;           /* No background by default */
     overflow: hidden;           /* Hide the pseudo-element overflow */
+    max-width: 100%;
   }
+
+.language .sub {
+    display: block;        
+    font-size: 0.8em;         
+    color: #000;              
+    margin-top: 4px;         
+    text-align: center;    
+    max-width: 100%;
+}
+  
+.language .main {
+    font-weight: normal;
+}
 
   .language::before {
     content: "";
@@ -330,20 +345,6 @@ blockquote {
   
   .language.ger::before {
     background-image: url('./img/germany.gif');
-  }
-      
-
-/* Proficiency text styling */
-.language .sub {
-    display: block;          /* Forces it onto a new line */
-    font-size: 0.8em;         /* Make it smaller */
-    color: #000;              /* Dark text color */
-    margin-top: 4px;          /* Adds a little spacing between lines */
-    text-align: center;       /* Centers the text horizontally */
-  }
-  
-  .language .main {
-    font-weight: normal;
   }
   
 /* Shelf container – using your existing background */
@@ -587,7 +588,7 @@ blockquote {
 
 .fade-in {
   opacity: 0;
-  transform: translateY(30px);
+  transform: translateY(20px);
   transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
@@ -680,6 +681,7 @@ blockquote {
   border: 2px solid #000;
   border-radius: 8px;
   transition: background 0.3s, transform 0.2s;
+  max-width: 100%;
 }
 
 .projects a:hover {
@@ -754,4 +756,115 @@ blockquote {
 @keyframes levitate {
   0%,100%   { transform: translate(-50%,-50%) translateY(10px); }
   50%       { transform: translate(-50%,-50%) translateY(-10px); }
+}
+
+.stack-area {
+  width: 100%;
+  height: 300vh;
+  position: relative;
+  background: transparent;
+  display: flex;
+  font-family: Aes;
+}
+
+.left {
+  height: 100vh;
+  flex-basis: 50%;
+  position: sticky;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  flex-direction: column;
+  margin-left: -180px;
+}
+
+.right {
+  height: 100vh;
+  flex-basis: 50%;
+  position: sticky;
+  top: 0;
+  margin-left: 400px;
+}
+
+.title {
+  width: 420px;
+  font-size: 84px;
+  font-family: Aes;
+  font-weight: 700;
+  line-height: 88px;
+}
+
+.sub-title {
+  width: 420px;
+  font-family: Aes;
+  font-size: 14px;
+  margin-top: 30px;
+}
+
+.sub-title button {
+  font-family: Aes;
+  font-size: 14px;
+  padding: 15px 30px;
+  background: black;
+  color: white;
+  border-radius: 8mm;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.stack-area .card {
+  width: 350px;
+  height: 350px;
+  border-radius: 25px;
+  margin-bottom: 10px;
+  position: absolute;
+  top: calc(50% - 175px);
+  left: calc(50% - 175px);
+  transition: 0.5s ease-in-out;
+  box-sizing: border-box;
+  padding: 35px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;  
+}
+.stack-area .card:nth-child(1) {
+  background: rgb(64, 122, 255);
+}
+.stack-area .card:nth-child(2) {
+  background: rgb(221, 62, 88);
+}
+.stack-area .card:nth-child(3) {
+  background: rgb(186, 113, 245);
+}
+.stack-area .card:nth-child(4) {
+  background: rgb(247, 92, 208);
+}
+
+.sub {
+  font-family: Aes;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.content {
+  font-family: Aes;
+  font-size: 44px;
+  font-weight: 700;
+  line-height: 54px;
+}
+
+.away {
+  transform-origin: bottom left;
+}
+
+.left, .right {
+  flex: 1;
+}
+.stack-area {
+  gap: 40px;
 }
