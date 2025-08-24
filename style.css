@@ -665,6 +665,7 @@ blockquote {
   border-radius: 8px;
   cursor: pointer;
   transition: background 0.3s, transform 0.2s;
+  letter-spacing: 5px;
 }
 
 .download-cv-form button:hover {
